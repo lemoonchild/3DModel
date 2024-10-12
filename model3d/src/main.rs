@@ -108,7 +108,7 @@ fn main() {
 
     let mut framebuffer = Framebuffer::new(framebuffer_width, framebuffer_height);
     let mut window = Window::new(
-        "Rust Graphics - Renderer Example",
+        "Rust Graphics - 3D Model Starship",
         window_width,
         window_height,
         WindowOptions::default(),
@@ -124,7 +124,7 @@ fn main() {
     let mut rotation = Vec3::new(0.0, 0.0, 0.0);
     let mut scale = 100.0f32;
 
-    let obj = Obj::load("assets/models/cube.obj").expect("Failed to load obj");
+    let obj = Obj::load("assets/models/starship.obj").expect("Failed to load obj");
     let vertex_arrays = obj.get_vertex_array(); 
 
     while window.is_open() {
