@@ -22,3 +22,15 @@ fn calculate_bounding_box(v1: &Vec3, v2: &Vec3, v3: &Vec3) -> (i32, i32, i32, i3
 
     (min_x, min_y, max_x, max_y)
 }
+
+fn barycentric_coordinates(p: &Vec3, a: &Vec3, b: &Vec3, c: &Vec3, area: f32) -> (f32, f32, f32) {
+    let w1 = edge_function(b, c, p) / area;
+    let w2 = edge_function(c, a, p) / area;
+    let w3 = edge_function(a, b, p) / area;
+
+    (w1, w2, w3)
+}
+
+fn edge_function(a: &Vec3, b: &Vec3, c: &Vec3) -> f32 {
+    (c.x - a.x) * (b.y - a.y) - (c.y - a.y) * (b.x - a.x)
+}
